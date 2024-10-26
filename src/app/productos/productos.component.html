@@ -1,0 +1,18 @@
+<ul style="list-style-type: none; padding: 0;">
+  <li *ngFor="let producto of productos"
+      class="producto-item"
+      [ngClass]="producto.descuento ? 'con-descuento' : 'sin-descuento'">
+    {{ producto.nombre }} - Precio: {{ producto.precio }}
+    <input type="checkbox" [(ngModel)]="producto.descuento" style="margin-left: 10px;">
+    Descuento
+    <button id="eliminarProducto" (click)="eliminarProducto(producto.id)">Eliminar Producto</button>
+  </li>
+</ul>
+
+<h3>Agregar Producto</h3>
+<div>
+  <input type="text" placeholder="Nombre del producto" [(ngModel)]="nuevoProducto.nombre">
+  <input type="number" placeholder="Precio del producto" [(ngModel)]="nuevoProducto.precio">
+  <input type="checkbox" [(ngModel)]="nuevoProducto.descuento"> Descuento
+  <button (click)="agregarProducto()">Agregar Producto</button>
+</div>
